@@ -13,7 +13,7 @@
 	<script type="text/javascript" src="script.js"></script>
 	<!-- Google Icons -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<title>Home</title>
+	<title>Log into system</title>
 	
 </head>
 <body>
