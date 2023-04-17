@@ -1,14 +1,11 @@
 html,
 body {
 	height: 100%;
-	min-width: 450px;
+
 }
 
 body {
-	display: flex;
-	align-items: center;
-	padding-top: 40px;
-	padding-bottom: 40px;
+
 	background-color: #f5f5f5;
 }
 
@@ -43,5 +40,8 @@ body {
 	transform: scale(1.1);
 }
 
+#hoverCard:hover{
+	scale: 1.1;
+}
 
 
