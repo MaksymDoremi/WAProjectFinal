@@ -32,85 +32,85 @@
 
 
 
-	<!-- LOGIN CARD -->
-	<div class="container" style="display: flex;
-	align-items: center; padding-top: 40px;
-	padding-bottom: 40px;">
-	<main class="form-signin w-100 m-auto" id="loginCard">
-		<div class="card shadow p-4 bg-body" style="border-radius: 18px;">
-			<div class="card-body">
-				<form>
-					<div class="d-flex justify-content-center">
-						<h1 class="h3 mb-3 fw-normal"><b>Registration</b></h1>
-					</div>
-					<div class="form-floating">
-						<input type="text" class="form-control" id="usernameInput" placeholder="Username" style=" margin-bottom: -1px;
-						border-bottom-right-radius: 0;
-						border-bottom-left-radius: 0;" required autocomplete="given-name">
-						<label for="usernameInput">Username</label>
-					</div>
-					<div class="form-floating">
-						<input type="email" class="form-control" id="emailInput" placeholder="Email" style="border-radius: 0; margin-bottom:-1px;" required autocomplete="email">
-						<label for="usernameInput">Email</label>
-					</div>
-					<div class="form-floating">
-						<input type="password" class="form-control" id="passwordInput" placeholder="Password" style="border-radius: 0; margin-bottom:-1px;" required autocomplete="new-password">
-						<label for="passwordInput">Password</label>
-						<i class="material-icons eye" id="passwordEye">visibility_off</i>
-					</div>
-					<div class="form-floating">
-						<input type="password" class="form-control" id="confirmPasswordInput" placeholder="confirm Password" style="margin-bottom: 10px;
-						border-top-left-radius: 0;
-						border-top-right-radius: 0;" required required autocomplete="new-password">
-						<label for="confirmPasswordInput">Confirm Password</label>
-						<i class="material-icons eye" id="confirmPasswordEye">visibility_off</i>
-					</div>
-					<div class="d-flex justify-content-center">
-						<button class="btn w-45 btn-dark myBtn mt-2" id="registerBtn" type="submit">REGISTER</button>
-					</div>
-					<div class="d-flex justify-content-center mt-3">
-						Already Have an Account?
-						<a href="login.php">&nbsp;Login</a>
-					</div>
-					<div class="d-flex justify-content-center">
-						<p class="mt-3 mb-3 text-body-secondary">&copy;Maksym Kintor 2023</p>
-					</div>
-				</form>
+	<!-- REGISTER CARD -->
+	<div class="container" style="display: flex; align-items: center; padding-top: 40px; padding-bottom: 40px;">
+		<main class="form-signin w-100 m-auto" id="loginCard">
+			<div class="card shadow p-4 bg-body" style="border-radius: 18px;">
+				<div class="card-body">
+					<form>
+						<div class="d-flex justify-content-center">
+							<h1 class="h3 mb-3 fw-normal"><b>Registration</b></h1>
+						</div>
+						<div class="form-floating">
+							<input type="text" class="form-control" id="usernameInput" placeholder="Username" style=" margin-bottom: -1px;
+							border-bottom-right-radius: 0;
+							border-bottom-left-radius: 0;" required autocomplete="given-name">
+							<label for="usernameInput">Username</label>
+						</div>
+						<div class="form-floating">
+							<input type="email" class="form-control" id="emailInput" placeholder="Email" style="border-radius: 0; margin-bottom:-1px;" required autocomplete="email">
+							<label for="usernameInput">Email</label>
+						</div>
+						<div class="form-floating">
+							<input type="password" class="form-control" id="passwordInput" placeholder="Password" style="border-radius: 0; margin-bottom:-1px;" required autocomplete="new-password">
+							<label for="passwordInput">Password</label>
+							<i class="material-icons eye" id="passwordEye">visibility_off</i>
+						</div>
+						<div class="form-floating">
+							<input type="password" class="form-control" id="confirmPasswordInput" placeholder="confirm Password" style="margin-bottom: 10px;
+							border-top-left-radius: 0;
+							border-top-right-radius: 0;" required required autocomplete="new-password">
+							<label for="confirmPasswordInput">Confirm Password</label>
+							<i class="material-icons eye" id="confirmPasswordEye">visibility_off</i>
+						</div>
+						<div class="d-flex justify-content-center">
+							<button class="btn w-45 btn-dark myBtn mt-2" id="registerBtn" type="submit">REGISTER</button>
+						</div>
+						<div class="d-flex justify-content-center mt-3">
+							Already Have an Account?
+							<a href="login.php">&nbsp;Login</a>
+						</div>
+						<div class="d-flex justify-content-center">
+							<p class="mt-3 mb-3 text-body-secondary">&copy;Maksym Kintor 2023</p>
+						</div>
+					</form>
+				</div>
 			</div>
-		</div>
-	</main>
-</div>
-<!-- Bootstrap JS and Popper -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
+		</main>
 
-		$("#passwordEye").click(function() {
-			if ($("#passwordEye").html() == "visibility_off") {
-				$("#passwordEye").html("visibility");
-				$("#passwordInput").attr('type', 'text');
-			} else {
-				$("#passwordEye").html("visibility_off");
-				$("#passwordInput").attr('type', 'password');
-			}
+	</div>
+
+	<!-- Bootstrap JS and Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			$("#passwordEye").click(function() {
+				if ($("#passwordEye").html() == "visibility_off") {
+					$("#passwordEye").html("visibility");
+					$("#passwordInput").attr('type', 'text');
+				} else {
+					$("#passwordEye").html("visibility_off");
+					$("#passwordInput").attr('type', 'password');
+				}
+
+			});
+
+			$("#confirmPasswordEye").click(function() {
+				if ($("#confirmPasswordEye").html() == "visibility_off") {
+					$("#confirmPasswordEye").html("visibility");
+					$("#confirmPasswordInput").attr('type', 'text');
+				} else {
+					$("#confirmPasswordEye").html("visibility_off");
+					$("#confirmPasswordInput").attr('type', 'password');
+				}
+
+			});
+
 
 		});
-
-		$("#confirmPasswordEye").click(function() {
-			if ($("#confirmPasswordEye").html() == "visibility_off") {
-				$("#confirmPasswordEye").html("visibility");
-				$("#confirmPasswordInput").attr('type', 'text');
-			} else {
-				$("#confirmPasswordEye").html("visibility_off");
-				$("#confirmPasswordInput").attr('type', 'password');
-			}
-
-		});
-
-
-	});
-</script>
+	</script>
 </body>
 
 </html>
