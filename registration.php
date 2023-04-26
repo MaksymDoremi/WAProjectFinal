@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require "config.php";
 
 
@@ -24,7 +24,7 @@ if(isset($_POST["submit"]))
 			$registrationQuery->execute(array(':username' => $username, ':email' => $email, ':password' => GenerateHashPassword($password)));
 
 			echo "<script>alert('Registration successful!')</script>";
-			echo "<script>setTimeout(function(){ window.location.href = 'index.php'; }, 0);</script>";
+			echo "<script>setTimeout(function(){ window.location.href = 'login.php'; }, 0);</script>";
 			exit();
 
 		}
@@ -38,9 +38,7 @@ if(isset($_POST["submit"]))
 
 
 	//Generates hash from password and adds my secret value to it
-function GenerateHashPassword($password){	
-	return hash('sha256', $password.'bc67*#gg');
-}
+
 ?>
 
 

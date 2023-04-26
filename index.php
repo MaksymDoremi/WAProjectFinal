@@ -1,3 +1,22 @@
+<?php
+session_start();
+require "config.php";
+if(!empty($_SESSION["id"])){
+	if((time() - $_SESSION['last_login_timestamp']) > 600){ //60 * 10 = 600 seconds
+		header('Location: logout.php');
+	}else{
+		$_SESSION['last_login_timestamp'] = time();
+		$id = $_SESSION["id"];
+		$user = $conn->prepare("select * from `User` where ID = :id");
+		$user->execute(array(':id' => $id));
+	}
+	
+}
+else{
+	header("Location: login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,10 +36,11 @@
 	
 </head>
 <body style="min-width: 450px;">
-	
-	<h1>Welcome it's index</h1>
+
+	<h1>Welcome <?php echo $user->fetchColumn(1); ?> it's index</h1>
 
 	<a href="logout.php">Logout</a>
+
 
 
 	

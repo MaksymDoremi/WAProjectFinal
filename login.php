@@ -1,7 +1,24 @@
 <?php
+session_start();
+require "config.php";
+
 if(isset($_POST["submit"])){
 	$username = $_POST["usernameInput"];
 	$password = $_POST["passwordInput"];
+	$user = $conn->prepare("select * from `User` where Username = :username and Password = :password");
+	$user->execute(array(':username' => $username, ':password' => GenerateHashPassword($password)));
+
+	if($user->rowCount() > 0){
+		$_SESSION['login'] = true;
+		$_SESSION['id'] = $user->fetchColumn(0);
+		$_SESSION['username'] = $user->fetchColumn(1);
+		$_SESSION['last_login_timestamp'] = time();
+
+		header('Location: index.php');
+		exit();
+	}else{
+		echo "<script>alert('User not registered or incorrect password.')</script>";
+	}
 }
 
 ?>
