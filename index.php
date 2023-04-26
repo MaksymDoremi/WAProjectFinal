@@ -18,7 +18,9 @@
 </head>
 <body style="min-width: 450px;">
 	
+	<h1>Welcome it's index</h1>
 
+	<a href="logout.php">Logout</a>
 
 
 	
