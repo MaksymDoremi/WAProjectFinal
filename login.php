@@ -6,7 +6,7 @@ if(isset($_POST["submit"])){
 	$username = $_POST["usernameInput"];
 	$password = $_POST["passwordInput"];
 	$user = $conn->prepare("select * from `User` where Username = :username and Password = :password");
-	$user->execute(array(':username' => $username, ':password' => GenerateHashPassword($password)));
+	$user->execute([':username' => $username, ':password' => GenerateHashPassword($password)]);
 
 	if($user->rowCount() > 0){
 		$_SESSION['login'] = true;
@@ -91,11 +91,11 @@ if(isset($_POST["submit"])){
 	</div>
 	<!-- FOOTER -->
 	<div class="container mt-auto" style=" bottom: 0; ">
-		<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+		<footer class="d-flex flex-wrap justify-content-center justify-content-md-between align-items-center py-3 my-4 border-top">
 			<div class="col-md-4 d-flex align-items-center">
 				<a href="main.php"><img src="ezgif.com-gif-maker (1).png" style="width: 190px;"></a>
-				<span class="mb-3 mb-md-0 text-muted">© 2023 Crypto Heaven Inc</span>
-				<span class="mb-3 mb-md-0 text-muted">© Maksym Kintor</span>
+				<span class="m-3 text-muted">© 2023 Crypto Heaven Inc</span>
+				<span class="m-3 text-muted">© Maksym Kintor</span>
 			</div>
 			<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
 				<li class="ms-3"><a class="text-muted" href="https://github.com/MaksymDoremi/WAProjectFinal" target="_blank"><i class="fa-brands fa-github" style="scale: 1.8;"></i></a></li>

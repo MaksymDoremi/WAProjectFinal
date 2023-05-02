@@ -1,5 +1,5 @@
 $(document).ready(function() {
 
-  $("#loginCard").hide().slideDown(1000);
+  $("#loginCard").hide().slideDown(800);
 
 });
