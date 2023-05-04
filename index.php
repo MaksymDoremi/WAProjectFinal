@@ -60,7 +60,7 @@ else{
 						<a class="nav-link" href="dashboard/myAccount.php" style="display: inline-block;">My Account</a>
 					</li>
 					<li class="nav-item d-flex justify-content-center">
-						<a class="nav-link" href="#" style="display: inline-block;">Contact Us</a>
+						<a class="nav-link" href="dashboard/contactUs.php" style="display: inline-block;">Contact Us</a>
 					</li>
 				</ul>
 			</div>

@@ -1,3 +1,25 @@
+<?php
+session_start();
+require "../config.php";
+
+//check if user is logged in, else throw him away
+if(!empty($_SESSION["id"])){
+	//logout condition
+	if((time() - $_SESSION['last_login_timestamp']) > 600){ //60 * 10 = 600 seconds
+		header('Location: logout.php');
+	}else{
+		$_SESSION['last_login_timestamp'] = time();
+		$id = $_SESSION["id"];
+		$user = $conn->prepare("select * from `User` where ID = :id");
+		$user->execute([':id' => $id]);
+	}
+
+}
+else{
+	header("Location: login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +38,7 @@
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<title>My Account</title>
-	
+
 </head>
 <body style="min-width: 450px; " class="d-flex flex-column min-vh-100">
 	<!-- NAVBAR -->
@@ -44,12 +66,18 @@
 			</div>
 		</div>
 	</nav>
-	my account
+
+	<div class="container flex-column" style="display: flex; align-items: center;">
+		<h1>Welcome <?php echo $user->fetchColumn(1); ?> it's your account</h1>
+
+		<a href="logout.php">Logout</a>
+	</div>
+
 	<!-- FOOTER -->
 	<div class="container mt-auto" style=" bottom: 0; ">
 		<footer class="d-flex flex-wrap justify-content-center justify-content-md-between align-items-center py-3 my-4 border-top">
 			<div class="col-md-4 d-flex align-items-center">
-				<a href="main.php"><img src="ezgif.com-gif-maker (1).png" style="width: 190px;"></a>
+				<a href="main.php"><img src="../ezgif.com-gif-maker (1).png" style="width: 190px;"></a>
 				<span class="m-3 text-muted">© 2023 Crypto Heaven Inc</span>
 				<span class="m-3 text-muted">© Maksym Kintor</span>
 			</div>

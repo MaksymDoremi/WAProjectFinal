@@ -1,3 +1,21 @@
+<?php
+session_start();
+
+//check if user is logged in, else throw him away
+if(!empty($_SESSION["id"])){
+	//logout condition
+	if((time() - $_SESSION['last_login_timestamp']) > 600){ //60 * 10 = 600 seconds
+		header('Location: logout.php');
+	}else{
+		$_SESSION['last_login_timestamp'] = time();
+	}
+	
+}
+else{
+	header("Location: login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +65,20 @@
 	<div class="container mt-3" id="">
 		<div class="card shadow">
 			<div class="card-body p-4">
-				bruh
+				<h3 class="card-title">In case of issues - fill the form below</h3>
+				<form method="post" action="sendEmail.php">
+					<div class="mb-3">
+						<label for="userIssueEmailInput" class="form-label">Your email address</label>
+						<input type="email" class="form-control" id="userIssueEmailInput" name="userIssueEmailInput" placeholder="name@example.com">
+					</div>
+					<div class="mb-3">
+						<label for="userIssueMessageInput" class="form-label">Your issue</label>
+						<textarea class="form-control" id="userIssueMessageInput" name="userIssueMessageInput" rows="3"></textarea>
+					</div>
+					<div class="d-flex justify-content-center">
+						<button class="btn w-45 btn-secondary myBtn mt-2" id="sendMessageBtn" name="submit" type="submit">SEND</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -55,7 +86,7 @@
 	<div class="container mt-auto" style=" bottom: 0; ">
 		<footer class="d-flex flex-wrap justify-content-center justify-content-md-between align-items-center py-3 my-4 border-top">
 			<div class="col-md-4 d-flex align-items-center">
-				<a href="main.php"><img src="ezgif.com-gif-maker (1).png" style="width: 190px;"></a>
+				<a href="main.php"><img src="../ezgif.com-gif-maker (1).png" style="width: 190px;"></a>
 				<span class="m-3 text-muted">© 2023 Crypto Heaven Inc</span>
 				<span class="m-3 text-muted">© Maksym Kintor</span>
 			</div>
