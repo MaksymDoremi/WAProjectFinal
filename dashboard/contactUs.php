@@ -41,7 +41,7 @@ else{
 	<nav class="navbar navbar-expand-md bg-body-tertiar" style="margin:0px; padding:0px;">
 		<div class="container-fluid" style="background-color: rgb(192, 192, 192);">
 			<span class="navbar-brand mb-0 h1">
-				<a href="main.php"><img src="..\ezgif.com-gif-maker (1).png" style="width: 190px;"></a>
+				<a href="..\main.php"><img src="..\ezgif.com-gif-maker (1).png" style="width: 190px;"></a>
 			</span>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>

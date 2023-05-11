@@ -12,6 +12,9 @@ if(!empty($_SESSION["id"])){
 		$id = $_SESSION["id"];
 		$user = $conn->prepare("select * from `User` where ID = :id");
 		$user->execute([':id' => $id]);
+
+		$username = $user->fetchColumn(1);
+		$email = $user->fetchColumn(2);
 	}
 
 }
@@ -45,7 +48,7 @@ else{
 	<nav class="navbar navbar-expand-md bg-body-tertiar" style="margin:0px; padding:0px;">
 		<div class="container-fluid" style="background-color: rgb(192, 192, 192);">
 			<span class="navbar-brand mb-0 h1">
-				<a href="main.php"><img src="..\ezgif.com-gif-maker (1).png" style="width: 190px;"></a>
+				<a href="..\main.php"><img src="..\ezgif.com-gif-maker (1).png" style="width: 190px;"></a>
 			</span>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -66,11 +69,33 @@ else{
 			</div>
 		</div>
 	</nav>
-
-	<div class="container flex-column" style="display: flex; align-items: center;">
-		<h1>Welcome <?php echo $user->fetchColumn(1); ?> it's your account</h1>
+	
+	<!-- <div class="container flex-column" style="display: flex; align-items: center;">
+		<h1>Welcome <?php echo $username; ?> it's your account</h1>
 
 		<a href="logout.php">Logout</a>
+	</div> -->
+	
+	<!-- MAIN -->
+	<div class="container mt-3" id="introCard">
+		<div class="card shadow">
+			<div class="card-body p-4">
+				<h2 class="card-title">Your Account</h2>
+				<hr>
+				<div class="container" style="width:300px;">
+					<div class="row d-flex justify-content-between">
+						<div class="col">Name: </div>
+						<div class="col text-end"><?php echo $username;?></div>
+					</div>
+					<hr style="width:350px;">
+					<div class="row d-flex justify-content-between">
+						<div class="col">Email: </div>
+						<div class="col text-end"><?php echo $email;?></div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<!-- FOOTER -->
