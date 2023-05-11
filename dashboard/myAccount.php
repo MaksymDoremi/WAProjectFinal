@@ -2,6 +2,13 @@
 session_start();
 require "../config.php";
 
+// dd($_SERVER);
+// function dd($message){
+// 	echo "<pre>";
+// 	var_dump($message);
+// 	die();
+// }
+
 //check if user is logged in, else throw him away
 if(!empty($_SESSION["id"])){
 	//logout condition
@@ -13,8 +20,7 @@ if(!empty($_SESSION["id"])){
 		$user = $conn->prepare("select * from `User` where ID = :id");
 		$user->execute([':id' => $id]);
 
-		$username = $user->fetchColumn(1);
-		$email = $user->fetchColumn(2);
+		$myUser = $user->fetchAll();
 	}
 
 }
@@ -33,9 +39,9 @@ else{
 	<!-- jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<!-- Own JS -->
-	<script type="text/javascript" src="script.js"></script>
+	<script type="text/javascript" src="../script.js"></script>
 	<!-- Google Icons -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!-- Font Awesome -->
@@ -84,15 +90,60 @@ else{
 				<hr>
 				<div class="container" style="width:300px;">
 					<div class="row d-flex justify-content-between">
-						<div class="col">Name: </div>
-						<div class="col text-end"><?php echo $username;?></div>
+						<div class="col">Username: </div>
+						<div class="col text-end"><b><?php echo $myUser[0]['Username'];?></b></div>
 					</div>
-					<hr style="width:350px;">
+					<br>
 					<div class="row d-flex justify-content-between">
 						<div class="col">Email: </div>
-						<div class="col text-end"><?php echo $email;?></div>
+						<div class="col text-end"><b><?php echo $myUser[0]['Email'];?></b></div>
 					</div>
-					
+					<br>
+					<div class="d-flex justify-content-center">
+						<!-- Button trigger modal -->
+						<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+							Change password
+						</button>
+
+						<!-- Modal -->
+						<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5" id="exampleModalLabel">Change password</h1>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">
+										<form action="<?php echo $_SERVER['PHP_SELF']?>" method="post" >
+
+											<div class="form-floating">
+												<input type="text" class="form-control" name="usernameInput" id="oldPasswordInput" placeholder="Old Password" style=" margin-bottom: -1px;
+												border-bottom-right-radius: 0;
+												border-bottom-left-radius: 0;" required autocomplete="given-name">
+												<label for="oldPasswordInput">Old Password</label>
+											</div>
+											<div class="form-floating">
+												<input type="password" class="form-control" name="newPasswordInput" id="newPasswordInput" placeholder="Password" style="border-radius: 0; margin-bottom:-1px;" required autocomplete="new-password">
+												<label for="newPasswordInput">New Password</label>
+												<i class="material-icons eye" id="passwordEye">visibility_off</i>
+											</div>
+											<div class="form-floating">
+												<input type="password" class="form-control" name="confirmNewPasswordInput" id="confirmNewPasswordInput" placeholder="confirm Password" style="margin-bottom: 10px;
+												border-top-left-radius: 0;
+												border-top-right-radius: 0;" required required autocomplete="new-password">
+												<label for="confirmNewPasswordInput">Confirm New Password</label>
+												<i class="material-icons eye" id="confirmPasswordEye">visibility_off</i>
+											</div>
+										</form>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-primary" name="submit">Confirm</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
