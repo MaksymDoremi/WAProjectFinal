@@ -25,6 +25,37 @@ $(document).ready(function() {
 
     });
 
+    $("#oldPasswordEye").click(function() {
+        if ($("#oldPasswordEye").html() == "visibility_off") {
+            $("#oldPasswordEye").html("visibility");
+            $("#oldPasswordInput").attr('type', 'text');
+        } else {
+            $("#oldPasswordEye").html("visibility_off");
+            $("#oldPasswordInput").attr('type', 'password');
+        }
+
+    });
+    $("#newPasswordEye").click(function() {
+        if ($("#newPasswordEye").html() == "visibility_off") {
+            $("#newPasswordEye").html("visibility");
+            $("#newPasswordInput").attr('type', 'text');
+        } else {
+            $("#newPasswordEye").html("visibility_off");
+            $("#newPasswordInput").attr('type', 'password');
+        }
+
+    });
+    $("#confirmNewPasswordEye").click(function() {
+        if ($("#confirmNewPasswordEye").html() == "visibility_off") {
+            $("#confirmNewPasswordEye").html("visibility");
+            $("#confirmNewPasswordInput").attr('type', 'text');
+        } else {
+            $("#confirmNewPasswordEye").html("visibility_off");
+            $("#confirmNewPasswordInput").attr('type', 'password');
+        }
+
+    });
+
 
 
 

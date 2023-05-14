@@ -62,7 +62,7 @@ else{
 			</div>
 		</div>
 	</nav>
-	<div class="container mt-3" id="">
+	<div class="container mt-3" id="mainCard">
 		<div class="card shadow">
 			<div class="card-body p-4">
 				<h3 class="card-title">In case of issues - fill the form below</h3>
@@ -98,5 +98,12 @@ else{
 	<!-- Bootstrap JS and Popper -->
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function()
+			{
+				$("#mainCard").hide().slideDown(400);
+			});
+	</script>
 </body>
 </html>

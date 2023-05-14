@@ -76,14 +76,8 @@ else{
 		</div>
 	</nav>
 	
-	<!-- <div class="container flex-column" style="display: flex; align-items: center;">
-		<h1>Welcome <?php echo $username; ?> it's your account</h1>
-
-		<a href="logout.php">Logout</a>
-	</div> -->
-	
 	<!-- MAIN -->
-	<div class="container mt-3" id="introCard">
+	<div class="container mt-3" id="mainCard">
 		<div class="card shadow">
 			<div class="card-body p-4">
 				<h2 class="card-title">Your Account</h2>
@@ -100,46 +94,52 @@ else{
 					</div>
 					<br>
 					<div class="d-flex justify-content-center">
-						<!-- Button trigger modal -->
+						<!-- MODAL CHANGE PASSWORD -->
 						<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
 							Change password
 						</button>
 
 						<!-- Modal -->
-						<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="min-width: 450px;">
 							<div class="modal-dialog">
 								<div class="modal-content">
 									<div class="modal-header">
 										<h1 class="modal-title fs-5" id="exampleModalLabel">Change password</h1>
 										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 									</div>
-									<div class="modal-body">
-										<form action="<?php echo $_SERVER['PHP_SELF']?>" method="post" >
-
-											<div class="form-floating">
-												<input type="text" class="form-control" name="usernameInput" id="oldPasswordInput" placeholder="Old Password" style=" margin-bottom: -1px;
-												border-bottom-right-radius: 0;
-												border-bottom-left-radius: 0;" required autocomplete="given-name">
-												<label for="oldPasswordInput">Old Password</label>
+									<main class="form-signin w-100 m-auto" id="loginCard">
+										<div class="card shadow p-4 bg-body" style="border-radius: 18px;">
+											<div class="card-body">
+												<div class="modal-body">
+													<form action="changePassword.php" method="post" id="changePasswordForm">
+														<div class="form-floating">
+															<input type="password" class="form-control" name="oldPasswordInput" id="oldPasswordInput" placeholder="Old Password" style=" margin-bottom: -1px;
+															border-bottom-right-radius: 0;
+															border-bottom-left-radius: 0;" required autocomplete="new-password">
+															<label for="oldPasswordInput">Old Password</label>
+															<i class="material-icons eye" id="oldPasswordEye">visibility_off</i>
+														</div>
+														<div class="form-floating">
+															<input type="password" class="form-control" name="newPasswordInput" id="newPasswordInput" placeholder="New Password" style="border-radius: 0; margin-bottom:-1px;" required autocomplete="new-password">
+															<label for="newPasswordInput">New Password</label>
+															<i class="material-icons eye" id="newPasswordEye">visibility_off</i>
+														</div>
+														<div class="form-floating">
+															<input type="password" class="form-control" name="confirmNewPasswordInput" id="confirmNewPasswordInput" placeholder="Confirm New Password" style="margin-bottom: 10px;
+															border-top-left-radius: 0;
+															border-top-right-radius: 0;" required required autocomplete="new-password">
+															<label for="confirmNewPasswordInput">Confirm New Password</label>
+															<i class="material-icons eye" id="confirmNewPasswordEye">visibility_off</i>
+														</div>
+													</form>
+												</div>
+												<div class="modal-footer d-flex justify-content-center">
+													<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeModalBtn">Close</button>
+													<button type="submit" class="btn btn-primary" name="submit" form="changePasswordForm">Confirm</button>
+												</div>
 											</div>
-											<div class="form-floating">
-												<input type="password" class="form-control" name="newPasswordInput" id="newPasswordInput" placeholder="Password" style="border-radius: 0; margin-bottom:-1px;" required autocomplete="new-password">
-												<label for="newPasswordInput">New Password</label>
-												<i class="material-icons eye" id="passwordEye">visibility_off</i>
-											</div>
-											<div class="form-floating">
-												<input type="password" class="form-control" name="confirmNewPasswordInput" id="confirmNewPasswordInput" placeholder="confirm Password" style="margin-bottom: 10px;
-												border-top-left-radius: 0;
-												border-top-right-radius: 0;" required required autocomplete="new-password">
-												<label for="confirmNewPasswordInput">Confirm New Password</label>
-												<i class="material-icons eye" id="confirmPasswordEye">visibility_off</i>
-											</div>
-										</form>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-										<button type="button" class="btn btn-primary" name="submit">Confirm</button>
-									</div>
+										</div>
+									</main>
 								</div>
 							</div>
 						</div>
@@ -162,6 +162,16 @@ else{
 			</ul>
 		</footer>
 	</div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#closeModalBtn').click(function(){
+				$('#changePasswordForm')[0].reset();
+			});
+
+			$("#mainCard").hide().slideDown(400);
+		});
+
+	</script>
 	<!-- Bootstrap JS and Popper -->
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
