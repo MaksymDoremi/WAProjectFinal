@@ -108,16 +108,6 @@ if(isset($_POST["submit"])){
 	<script type="text/javascript">
 		$(document).ready(function() {
 
-			$("#passwordEye").click(function() {
-				if ($("#passwordEye").html() == "visibility_off") {
-					$("#passwordEye").html("visibility");
-					$("#passwordInput").attr('type', 'text');
-				} else {
-					$("#passwordEye").html("visibility_off");
-					$("#passwordInput").attr('type', 'password');
-				}
-
-			});
 
 		});
 	</script>

@@ -71,6 +71,9 @@ else{
 					<li class="nav-item d-flex justify-content-center">
 						<a class="nav-link" href="contactUs.php" style="display: inline-block;">Contact Us</a>
 					</li>
+					<li class="nav-item d-flex justify-content-center">
+						<a class="nav-link" href="../logout.php" style="display: inline-block;"><b>LOG OUT</b></a>
+					</li>
 				</ul>
 			</div>
 		</div>
