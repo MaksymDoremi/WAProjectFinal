@@ -1,7 +1,7 @@
+const root = 'https://api.coingecko.com/api/v3/';
+
 $(document).ready(function() {
-
     $("#loginCard").hide().slideDown(800);
-
 
     $("#passwordEye").click(function() {
         if ($("#passwordEye").html() == "visibility_off") {
@@ -11,7 +11,6 @@ $(document).ready(function() {
             $("#passwordEye").html("visibility_off");
             $("#passwordInput").attr('type', 'password');
         }
-
     });
 
     $("#confirmPasswordEye").click(function() {
@@ -22,7 +21,6 @@ $(document).ready(function() {
             $("#confirmPasswordEye").html("visibility_off");
             $("#confirmPasswordInput").attr('type', 'password');
         }
-
     });
 
     $("#oldPasswordEye").click(function() {
@@ -33,8 +31,8 @@ $(document).ready(function() {
             $("#oldPasswordEye").html("visibility_off");
             $("#oldPasswordInput").attr('type', 'password');
         }
-
     });
+
     $("#newPasswordEye").click(function() {
         if ($("#newPasswordEye").html() == "visibility_off") {
             $("#newPasswordEye").html("visibility");
@@ -43,8 +41,8 @@ $(document).ready(function() {
             $("#newPasswordEye").html("visibility_off");
             $("#newPasswordInput").attr('type', 'password');
         }
-
     });
+
     $("#confirmNewPasswordEye").click(function() {
         if ($("#confirmNewPasswordEye").html() == "visibility_off") {
             $("#confirmNewPasswordEye").html("visibility");
@@ -53,10 +51,29 @@ $(document).ready(function() {
             $("#confirmNewPasswordEye").html("visibility_off");
             $("#confirmNewPasswordInput").attr('type', 'password');
         }
-
     });
 
 
-
+    //XHR for crypto coins
 
 });
+
+function Ping() {
+    $.ajax({
+        url: root + "ping",
+        type: "GET",
+        success: function(data, status) { 
+            return true;
+        },
+        error: function(data, status) {
+            $("#ping-modal").html("Status: " + status);
+            $("#modal-buttons").html("<button type='button' class='btn btn-primary' onclick='Ping()'>Try Again</button><button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>");
+            return false;
+        }
+    });
+}
+
+function GetCoins(){
+
+}
+
