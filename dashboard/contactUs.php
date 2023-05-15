@@ -5,14 +5,21 @@ session_start();
 if(!empty($_SESSION["id"])){
 	//logout condition
 	if((time() - $_SESSION['last_login_timestamp']) > 600){ //60 * 10 = 600 seconds
-		header('Location: logout.php');
+		//$_SESSION['redirect_url'] = $_SERVER['REQUEST_URI'];
+		header('Location: ../logout.php');
+
 	}else{
 		$_SESSION['last_login_timestamp'] = time();
 	}
 	
 }
 else{
-	header("Location: login.php");
+	// Store the current URL in a session variable
+    $_SESSION['redirect_url'] = $_SERVER['REQUEST_URI'];
+    
+    // Redirect the user to the login page
+    header("Location: ../login.php");
+    exit;
 }
 ?>
 

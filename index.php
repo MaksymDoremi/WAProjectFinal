@@ -16,7 +16,12 @@ if(!empty($_SESSION["id"])){
 	
 }
 else{
-	header("Location: login.php");
+	// Store the current URL in a session variable
+    $_SESSION['redirect_url'] = $_SERVER['REQUEST_URI'];
+    
+    // Redirect the user to the login page
+    header("Location: login.php");
+    exit;
 }
 ?>
 
