@@ -14,7 +14,21 @@ if(isset($_POST["submit"])){
 		$_SESSION['username'] = $user->fetchColumn(1);
 		$_SESSION['last_login_timestamp'] = time();
 
-		header('Location: index.php');
+		if (isset($_SESSION['redirect_url'])) {
+    		// Get the stored URL
+			$redirect_url = $_SESSION['redirect_url'];
+
+    		// Clear the session variable
+			unset($_SESSION['redirect_url']);
+
+    		// Redirect the user back to the stored URL
+			header("Location: $redirect_url");
+			exit;
+		} else {
+			header('Location: index.php');
+			exit;
+		}
+		
 		exit();
 	}else{
 		echo "<script>alert('User not registered or incorrect password.')</script>";
