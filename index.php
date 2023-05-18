@@ -17,11 +17,11 @@ if(!empty($_SESSION["id"])){
 }
 else{
 	// Store the current URL in a session variable
-    $_SESSION['redirect_url'] = $_SERVER['REQUEST_URI'];
-    
+	$_SESSION['redirect_url'] = $_SERVER['REQUEST_URI'];
+
     // Redirect the user to the login page
-    header("Location: login.php");
-    exit;
+	header("Location: login.php");
+	exit;
 }
 ?>
 
@@ -75,27 +75,47 @@ else{
 		</div>
 	</nav>
 
-	<div class="container flex-column" style="display: flex; align-items: center;">
-		<h1>Welcome <?php echo $user->fetchColumn(1); ?> it's index</h1>
+	
+	<div class="container mt-2">
+		<div class="row g-2">
+			<div class="col-xl-4 col-md-6 col-sm-12" >
+				<div class="card shadow bg-body" style="border-radius: 13px;">
+					<h5 class="card-title ps-3 pt-3">Ethereum</h5>
+					<div class="card-body">
+						<div class="row no-gutters mt-1">
+							<div class="box-icon">
+								<img style="border:solid grey 1px; border-radius: 50%;" src="https://assets.coingecko.com/coins/images/279/small/ethereum.png?1595348880">
+							</div>
+							<div class="col text-left">
+								<div>
+									<b>BTC</b>/USDT</div>
+									<div class="coin-price">27387.23
+										<span style="font-size: x-small; font-weight: 700; padding-left: 3px;">USDT</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-		<a href="logout.php">Logout</a>
-	</div>
-
-	<!-- FOOTER -->
-	<div class="container mt-auto" style=" bottom: 0; ">
-		<footer class="d-flex flex-wrap justify-content-center justify-content-md-between align-items-center py-3 my-4 border-top">
-			<div class="col-md-4 d-flex align-items-center">
-				<a href="main.php"><img src="ezgif.com-gif-maker (1).png" style="width: 190px;"></a>
-				<span class="m-3 text-muted">© 2023 Crypto Heaven Inc</span>
-				<span class="m-3 text-muted">© Maksym Kintor</span>
 			</div>
-			<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-				<li class="ms-3"><a class="text-muted" href="https://github.com/MaksymDoremi/WAProjectFinal" target="_blank"><i class="fa-brands fa-github" style="scale: 1.8;"></i></a></li>
-			</ul>
-		</footer>
-	</div>
-	<!-- Bootstrap JS and Popper -->
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-</body>
-</html>
+		</div>
+
+		<!-- FOOTER -->
+		<div class="container mt-auto" style=" bottom: 0; ">
+			<footer class="d-flex flex-wrap justify-content-center justify-content-md-between align-items-center py-3 my-4 border-top">
+				<div class="col-md-4 d-flex align-items-center">
+					<a href="main.php"><img src="ezgif.com-gif-maker (1).png" style="width: 190px;"></a>
+					<span class="m-3 text-muted">© 2023 Crypto Heaven Inc</span>
+					<span class="m-3 text-muted">© Maksym Kintor</span>
+				</div>
+				<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+					<li class="ms-3"><a class="text-muted" href="https://github.com/MaksymDoremi/WAProjectFinal" target="_blank"><i class="fa-brands fa-github" style="scale: 1.8;"></i></a></li>
+				</ul>
+			</footer>
+		</div>
+		<!-- Bootstrap JS and Popper -->
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+	</body>
+	</html>

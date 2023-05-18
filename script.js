@@ -1,4 +1,11 @@
 const root = 'https://api.coingecko.com/api/v3/';
+const coins = ["bitcoin","ethereum","lcx","lbk","manna","xshrap","yummy"]; 
+
+class Coin(){
+    constructor(id, price, image, ){
+
+    }
+}
 
 $(document).ready(function() {
     $("#loginCard").hide().slideDown(800);
@@ -55,25 +62,48 @@ $(document).ready(function() {
 
 
     //XHR for crypto coins
+    $("#pingBtn").on("click", GetCoins);
+
 
 });
+
 
 function Ping() {
     $.ajax({
         url: root + "ping",
         type: "GET",
         success: function(data, status) { 
+            console.log("super");
             return true;
         },
         error: function(data, status) {
-            $("#ping-modal").html("Status: " + status);
-            $("#modal-buttons").html("<button type='button' class='btn btn-primary' onclick='Ping()'>Try Again</button><button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>");
+            console.log(status);
             return false;
         }
     });
 }
 
+function GetCoin(coin){
+    $.ajax({
+        url: root+"coins/"+coin,
+        type: "GET",
+        success: function(data, status){
+            console.log(data);
+        },
+        error: function(data, status){
+            console.log("error occured during fetching data from api");
+        }
+    });
+}
+
 function GetCoins(){
+    for(var i = 0; i < coins.length; i++){
+        GetCoin(coins[i]);
+    }
+}
+
+function InsertCoin(){
 
 }
+
 
