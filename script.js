@@ -121,42 +121,47 @@ function GetCoins() {
 }
 
 function InsertCoin(coin) {
-    /*
-    <div class="col-xl-4 col-md-6 col-sm-12" >
-                <div class="card shadow bg-body" style="border-radius: 13px;">
-                    <div class="d-flex justify-content-between">
-                        <h5 class="card-title ps-3 pt-3">Ethereum</h5>
-                        <h7 class="card-title pe-3 pt-3 text-danger">-0.0123%</h7>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex flex-row">
-                            <div class="box-icon mx-2">
-                                <img style="border:solid grey 1px; border-radius: 50%;" src="https://assets.coingecko.com/coins/images/279/small/ethereum.png?1595348880">
-                            </div>
-                            <div class="text-left">
-                                <div>
-                                    <b>BTC</b>/USDT
-                                </div>
-                                <div class="coin-price">27387.23
-                                    <span style="font-size: x-small; font-weight: 700; padding-left: 3px;">USDT</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div id="chartContainer" style="height: 100px; width:100%;"></div>
-                    </div>
-                </div>
-            </div>
-        */
-
     let divCol = $('<div class="col-xl-4 col-md-6 col-sm-12"></div>');
-    let divCard = $('<div class="card shadow bg-body" style="border-radius: 13px;"></div>');
-    let div1 = $('<div class="d-flex justify-content-between"></div>');
-    let h5 = $('<h5 class="card-title ps-3 pt-3"></h5>');
-    let h7 = $('<h7 class="card-title pe-3 pt-3"></div>'); //add text-success or text-danger
-    let divCardBody = $('<div class="card-body"></div>');
-    let div2 = $('<div class="d-flex flex-row"></div>');
-    let divIcon = $('<div class="box-icon mx-2"></div>');
-    let img = $('<img style="border:solid grey 1px; border-radius: 50%;">');
+        let divCard = $('<div class="card shadow bg-body" style="border-radius: 13px;"></div>');
+            let div1 = $('<div class="d-flex justify-content-between"></div>');
+                let h5 = $('<h5 class="card-title ps-3 pt-3"></h5>');
+                let h7 = $('<h7 class="card-title pe-3 pt-3"></div>'); //add text-success or text-danger
+            let divCardBody = $('<div class="card-body"></div>');
+                let div2 = $('<div class="d-flex flex-row"></div>');
+                    let divIcon = $('<div class="box-icon mx-2"></div>');
+                        let img = $('<img style="border:solid grey 1px; border-radius: 50%;">');
+                    let divTextLeft = $('<div class="text-left"></div>');
+                        let div3 = $('<div></div>');//<b>coin.symbol to uppper case</b>/CZK
+                        let divPrice = $('<div></div>');
+                            let span = $('<span style="font-size: x-small; font-weight: 700; padding-left: 3px;">CZK</span>'); //czk napevno
+            let div4 = $('<div class="container"></div>');
+                let divChart = $('<div id="chartContainer" style="height: 100px; width:100%;"></div>');
+
+    div4.append(divChart);
+    divPrice.html(coin.price);
+    divPrice.append(span);
+    div3.html('<b>'+coin.symbol.toUpperCase()+'</b>/CZK');
+    divTextLeft.append(div3);
+    divTextLeft.append(divPrice);
+    img.attr('src', coin.image);
+    divIcon.append(img);
+    div2.append(divIcon);
+    div2.append(divTextLeft);
+    divCardBody.append(div2);
+    h5.append(coin.name);
+    h7.append(coin.percentage);
+    if(parseFloat(coin.percentage) < 0){
+        h7.addClass('text-danger');
+    }else{
+        h7.addClass('text-success');
+    }
+    div1.append(h5);
+    div1.append(h7);
+    divCard.append(div1);
+    divCard.append(divCardBody);
+    divCard.append(div4);
+    divCol.append(divCard);
+
+    $('#currencyPlace').append(divCol);
+
 }

@@ -80,7 +80,8 @@ else{
 
 	
 	<div class="container mt-2">
-		<div class="row g-2">
+		<div class="row g-2" id="currencyPlace">
+			<!--  
 			<div class="col-xl-4 col-md-6 col-sm-12" >
 				<div class="card shadow bg-body" style="border-radius: 13px;">
 					<div class="d-flex justify-content-between">
@@ -96,7 +97,7 @@ else{
 								<div>
 									<b>BTC</b>/USDT
 								</div>
-								<div class="coin-price">27387.23
+								<div >27387.23
 									<span style="font-size: x-small; font-weight: 700; padding-left: 3px;">USDT</span>
 								</div>
 							</div>
@@ -107,6 +108,7 @@ else{
 					</div>
 				</div>
 			</div>
+		-->
 		</div>
 	</div>
 
