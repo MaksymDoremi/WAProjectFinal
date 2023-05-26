@@ -1,5 +1,5 @@
 const root = 'https://api.coingecko.com/api/v3/';
-const coins = ["bitcoin", "ethereum", "lcx", "lbk", "manna", "xshrap", "yummy"];
+const coins = ["bitcoin", "ethereum", "lcx", "lbk", "poocoin", "xshrap", "yummy"];
 
 $(document).ready(function() {
     $("#loginCard").hide().slideDown(800);
