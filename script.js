@@ -54,10 +54,7 @@ $(document).ready(function() {
         }
     });
 
-
-    //XHR for crypto coins
-    $("#pingBtn").on("click", GetCoins);
-
+    startFetchingData();
 
 
 });
@@ -102,11 +99,7 @@ function GetCoin(coin) {
         url: root + "coins/" + coin,
         type: "GET",
         success: function(data, status) {
-            //console.log(data);
-            //console.log(data.id+"\n"+data.symbol+"\n"+data.name+"\n"+data.image.small+"\n"+data.market_data.current_price.czk+"\n"+data.market_data.price_change_percentage_1h_in_currency.czk);
-
             InsertCoin(new Coin(data.id, data.symbol, data.name, data.image.small, data.market_data.current_price.czk, data.market_data.price_change_percentage_1h_in_currency.czk));
-
         },
         error: function(data, status) {
             console.log("error occured during fetching data from api");
@@ -114,33 +107,29 @@ function GetCoin(coin) {
     });
 }
 
-function GetCoins() {
-    for (var i = 0; i < coins.length; i++) {
-        GetCoin(coins[i]);
-    }
-}
 
 function InsertCoin(coin) {
     let divCol = $('<div class="col-xl-4 col-md-6 col-sm-12"></div>');
-        let divCard = $('<div class="card shadow bg-body" style="border-radius: 13px;"></div>');
-            let div1 = $('<div class="d-flex justify-content-between"></div>');
-                let h5 = $('<h5 class="card-title ps-3 pt-3"></h5>');
-                let h7 = $('<h7 class="card-title pe-3 pt-3"></div>'); //add text-success or text-danger
-            let divCardBody = $('<div class="card-body"></div>');
-                let div2 = $('<div class="d-flex flex-row"></div>');
-                    let divIcon = $('<div class="box-icon mx-2"></div>');
-                        let img = $('<img style="border:solid grey 1px; border-radius: 50%;">');
-                    let divTextLeft = $('<div class="text-left"></div>');
-                        let div3 = $('<div></div>');//<b>coin.symbol to uppper case</b>/CZK
-                        let divPrice = $('<div></div>');
-                            let span = $('<span style="font-size: x-small; font-weight: 700; padding-left: 3px;">CZK</span>'); //czk napevno
-            let div4 = $('<div class="container"></div>');
-                let divChart = $('<div id="chartContainer" style="height: 100px; width:100%;"></div>');
+    let divCard = $('<div class="card shadow bg-body" style="border-radius: 13px;"></div>');
+    let div1 = $('<div class="d-flex justify-content-between"></div>');
+    let h5 = $('<h5 class="card-title ps-3 pt-3"></h5>');
+    let h7 = $('<h7 class="card-title pe-3 pt-3"></div>'); //add text-success or text-danger
+    let divCardBody = $('<div class="card-body"></div>');
+    let div2 = $('<div class="d-flex flex-row"></div>');
+    let divIcon = $('<div class="box-icon mx-2"></div>');
+    let img = $('<img style="border:solid grey 1px; border-radius: 50%;">');
+    let divTextLeft = $('<div class="text-left"></div>');
+    let div3 = $('<div></div>'); //<b>coin.symbol to uppper case</b>/CZK
+    let divPrice = $('<div></div>');
+    let span = $('<span style="font-size: x-small; font-weight: 700; padding-left: 3px;">CZK</span>'); //czk napevno
+    let div4 = $('<div class="container"></div>');
+    let divChart = $('<div id="chartContainer" style="height: 100px; width:100%;"></div>');
 
     div4.append(divChart);
     divPrice.html(coin.price);
     divPrice.append(span);
-    div3.html('<b>'+coin.symbol.toUpperCase()+'</b>/CZK');
+    divPrice.attr('id',coin.symbol+'price');
+    div3.html('<b>' + coin.symbol.toUpperCase() + '</b>/CZK');
     divTextLeft.append(div3);
     divTextLeft.append(divPrice);
     img.attr('src', coin.image);
@@ -150,9 +139,10 @@ function InsertCoin(coin) {
     divCardBody.append(div2);
     h5.append(coin.name);
     h7.append(coin.percentage);
-    if(parseFloat(coin.percentage) < 0){
+    h7.attr('id',coin.symbol+'percentage');
+    if (parseFloat(coin.percentage) < 0) {
         h7.addClass('text-danger');
-    }else{
+    } else {
         h7.addClass('text-success');
     }
     div1.append(h5);
@@ -165,3 +155,61 @@ function InsertCoin(coin) {
     $('#currencyPlace').append(divCol);
 
 }
+
+
+function fetchCoinData(coin) {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url: root + 'coins/' + coin, // Replace with your API endpoint
+            success: (data) => {
+                resolve(data);
+            },
+            error: (xhr, status, error) => {
+                reject(error);
+            }
+        });
+    });
+}
+
+function updateUI(data) {
+    $('#'+data.symbol+'price').html(data.market_data.current_price.czk);
+    let span = $('<span style="font-size: x-small; font-weight: 700; padding-left: 3px;">CZK</span>');
+    $('#'+data.symbol+'price').append(span);
+
+    $('#'+data.symbol+'percentage').html(data.percentage);
+
+    if (parseFloat(data.percentage) < 0) {
+        $('#'+data.symbol+'percentage').attr('class','card-title pe-3 pt-3 text-danger');
+    } else {
+        $('#'+data.symbol+'percentage').attr('class','card-title pe-3 pt-3 text-success');
+    }
+}
+
+async function fetchCoinDataAndUpdateUI(coin) {
+    try {
+        const data = await fetchCoinData(coin);
+        console.log("fetch");
+        updateUI(data);
+    } catch (error) {
+        console.error(`Error fetching ${coin} data:`, error);
+    }
+}
+
+function startFetchingData() {
+    coins.forEach((coin) => {
+        GetCoin(coin);
+        setInterval(() => {
+            fetchCoinDataAndUpdateUI(coin);
+        }, 5000); // Fetch data every 5 seconds (5000 milliseconds)
+    });
+}
+
+function AddCoin(coin){
+    coins.push(coin);
+    GetCoin(coin);
+    setInterval(() => {
+        fetchCoinDataAndUpdateUI(coin);
+    }, 5000)
+}
+
+
