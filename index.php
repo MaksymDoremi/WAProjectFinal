@@ -77,66 +77,27 @@ else{
 			</div>
 		</div>
 	</nav>
-<<<<<<< HEAD
-	<!--
-	<div class="container flex-column" style="display: flex; align-items: center;">
-		<h1>Welcome <?php echo $user->fetchColumn(1); ?> it's index</h1>
-
-		<a href="logout.php">Logout</a>
-=======
 
 	
 	<div class="container mt-2">
 		<div class="row g-2" id="currencyPlace">
 	
 		</div>
->>>>>>> slave
 	</div>
--->
 
-<div class="container mt-3">
-	<div class="row">
-		<div class="col-xl-4 col-md-6 col-sm-12 p-2">
-			<div class="card shadow bg-body">
-				<div class="card-body">
-					hell nahh
-				</div>
+	<!-- FOOTER -->
+	<div class="container mt-auto" style=" bottom: 0; ">
+		<footer class="d-flex flex-wrap justify-content-center justify-content-md-between align-items-center py-3 my-4 border-top">
+			<div class="col-md-4 d-flex align-items-center">
+				<a href="main.php"><img src="ezgif.com-gif-maker (1).png" style="width: 190px;"></a>
+				<span class="m-3 text-muted">© 2023 Crypto Heaven Inc</span>
+				<span class="m-3 text-muted">© Maksym Kintor</span>
 			</div>
-		</div>
-		<div class="col-xl-4 col-md-6 col-sm-12 p-2">
-			<div class="card shadow bg-body">
-				<div class="card-body">
-					hell nahh
-				</div>
-			</div>
-		</div>
-		<div class="col-xl-4 col-md-6 col-sm-12 p-2">
-			<div class="card shadow bg-body">
-				<div class="card-body">
-					hell nahh
-				</div>
-			</div>
-		</div>
+			<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+				<li class="ms-3"><a class="text-muted" href="https://github.com/MaksymDoremi/WAProjectFinal" target="_blank"><i class="fa-brands fa-github" style="scale: 1.8;"></i></a></li>
+			</ul>
+		</footer>
 	</div>
-<<<<<<< HEAD
-</div>
-<!-- FOOTER -->
-<div class="container mt-auto" style=" bottom: 0; ">
-	<footer class="d-flex flex-wrap justify-content-center justify-content-md-between align-items-center py-3 my-4 border-top">
-		<div class="col-md-4 d-flex align-items-center">
-			<a href="main.php"><img src="ezgif.com-gif-maker (1).png" style="width: 190px;"></a>
-			<span class="m-3 text-muted">© 2023 Crypto Heaven Inc</span>
-			<span class="m-3 text-muted">© Maksym Kintor</span>
-		</div>
-		<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-			<li class="ms-3"><a class="text-muted" href="https://github.com/MaksymDoremi/WAProjectFinal" target="_blank"><i class="fa-brands fa-github" style="scale: 1.8;"></i></a></li>
-		</ul>
-	</footer>
-</div>
-<!-- Bootstrap JS and Popper -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-=======
 	<!-- Bootstrap JS and Popper -->
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
@@ -193,6 +154,5 @@ else{
 	</script>
 
 
->>>>>>> slave
 </body>
 </html>
