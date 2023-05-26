@@ -138,7 +138,7 @@ function InsertCoin(coin) {
     div2.append(divTextLeft);
     divCardBody.append(div2);
     h5.append(coin.name);
-    h7.append(coin.percentage);
+    h7.append(coin.percentage+'%');
     h7.attr('id',coin.symbol+'percentage');
     if (parseFloat(coin.percentage) < 0) {
         h7.addClass('text-danger');
@@ -172,13 +172,15 @@ function fetchCoinData(coin) {
 }
 
 function updateUI(data) {
+    
     $('#'+data.symbol+'price').html(data.market_data.current_price.czk);
     let span = $('<span style="font-size: x-small; font-weight: 700; padding-left: 3px;">CZK</span>');
     $('#'+data.symbol+'price').append(span);
 
-    $('#'+data.symbol+'percentage').html(data.percentage);
+    
+    $('#'+data.symbol+'percentage').html(data.market_data.price_change_percentage_1h_in_currency.czk+'%');
 
-    if (parseFloat(data.percentage) < 0) {
+    if (parseFloat(data.market_data.price_change_percentage_1h_in_currency.czk) < 0) {
         $('#'+data.symbol+'percentage').attr('class','card-title pe-3 pt-3 text-danger');
     } else {
         $('#'+data.symbol+'percentage').attr('class','card-title pe-3 pt-3 text-success');
