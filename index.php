@@ -88,34 +88,7 @@ else{
 	
 	<div class="container mt-2">
 		<div class="row g-2" id="currencyPlace">
-			<!--  
-			<div class="col-xl-4 col-md-6 col-sm-12" >
-				<div class="card shadow bg-body" style="border-radius: 13px;">
-					<div class="d-flex justify-content-between">
-						<h5 class="card-title ps-3 pt-3">Ethereum</h5>
-						<h7 class="card-title pe-3 pt-3 text-danger">-0.0123%</h7>
-					</div>
-					<div class="card-body">
-						<div class="d-flex flex-row">
-							<div class="box-icon mx-2">
-								<img style="border:solid grey 1px; border-radius: 50%;" src="https://assets.coingecko.com/coins/images/279/small/ethereum.png?1595348880">
-							</div>
-							<div class="text-left">
-								<div>
-									<b>BTC</b>/USDT
-								</div>
-								<div >27387.23
-									<span style="font-size: x-small; font-weight: 700; padding-left: 3px;">USDT</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="container">
-						<div id="chartContainer" style="height: 100px; width:100%;"></div>
-					</div>
-				</div>
-			</div>
-		-->
+	
 		</div>
 >>>>>>> slave
 	</div>
