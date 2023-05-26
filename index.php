@@ -19,7 +19,7 @@ else{
 	// Store the current URL in a session variable
 	$_SESSION['redirect_url'] = $_SERVER['REQUEST_URI'];
 
-    // Redirect the user to the login page
+	// Redirect the user to the login page
 	header("Location: login.php");
 	exit;
 }
@@ -42,6 +42,9 @@ else{
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<!-- charts -->
+	<script src="https://cdn.canvasjs.com/canvasjs.min.js"></script> 
+
 	<title>Home</title>
 	
 </head>
@@ -80,42 +83,101 @@ else{
 		<div class="row g-2">
 			<div class="col-xl-4 col-md-6 col-sm-12" >
 				<div class="card shadow bg-body" style="border-radius: 13px;">
-					<h5 class="card-title ps-3 pt-3">Ethereum</h5>
+					<div class="d-flex justify-content-between">
+						<h5 class="card-title ps-3 pt-3">Ethereum</h5>
+						<h7 class="card-title pe-3 pt-3 text-danger">-0.0123%</h7>
+					</div>
 					<div class="card-body">
-						<div class="row no-gutters mt-1">
-							<div class="box-icon">
+						<div class="d-flex flex-row">
+							<div class="box-icon mx-2">
 								<img style="border:solid grey 1px; border-radius: 50%;" src="https://assets.coingecko.com/coins/images/279/small/ethereum.png?1595348880">
 							</div>
-							<div class="col text-left">
+							<div class="text-left">
 								<div>
-									<b>BTC</b>/USDT</div>
-									<div class="coin-price">27387.23
-										<span style="font-size: x-small; font-weight: 700; padding-left: 3px;">USDT</span>
-									</div>
+									<b>BTC</b>/USDT
+								</div>
+								<div class="coin-price">27387.23
+									<span style="font-size: x-small; font-weight: 700; padding-left: 3px;">USDT</span>
 								</div>
 							</div>
 						</div>
 					</div>
+					<div class="container">
+						<div id="chartContainer" style="height: 100px; width:100%;"></div>
+					</div>
 				</div>
-
 			</div>
 		</div>
+	</div>
 
-		<!-- FOOTER -->
-		<div class="container mt-auto" style=" bottom: 0; ">
-			<footer class="d-flex flex-wrap justify-content-center justify-content-md-between align-items-center py-3 my-4 border-top">
-				<div class="col-md-4 d-flex align-items-center">
-					<a href="main.php"><img src="ezgif.com-gif-maker (1).png" style="width: 190px;"></a>
-					<span class="m-3 text-muted">© 2023 Crypto Heaven Inc</span>
-					<span class="m-3 text-muted">© Maksym Kintor</span>
-				</div>
-				<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-					<li class="ms-3"><a class="text-muted" href="https://github.com/MaksymDoremi/WAProjectFinal" target="_blank"><i class="fa-brands fa-github" style="scale: 1.8;"></i></a></li>
-				</ul>
-			</footer>
-		</div>
-		<!-- Bootstrap JS and Popper -->
-		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-	</body>
-	</html>
+	<!-- FOOTER -->
+	<div class="container mt-auto" style=" bottom: 0; ">
+		<footer class="d-flex flex-wrap justify-content-center justify-content-md-between align-items-center py-3 my-4 border-top">
+			<div class="col-md-4 d-flex align-items-center">
+				<a href="main.php"><img src="ezgif.com-gif-maker (1).png" style="width: 190px;"></a>
+				<span class="m-3 text-muted">© 2023 Crypto Heaven Inc</span>
+				<span class="m-3 text-muted">© Maksym Kintor</span>
+			</div>
+			<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+				<li class="ms-3"><a class="text-muted" href="https://github.com/MaksymDoremi/WAProjectFinal" target="_blank"><i class="fa-brands fa-github" style="scale: 1.8;"></i></a></li>
+			</ul>
+		</footer>
+	</div>
+	<!-- Bootstrap JS and Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+	<script src="C:\Users\kinto\node_modules\chart.js\dist\chart.umd.js"></script>
+	<script src="text/javascript"></script>
+	
+	<script type="text/javascript">
+		/*
+		window.onload = function () {
+
+			var dps = [];
+			var chart = new CanvasJS.Chart("chartContainer", {
+				exportEnabled: true,
+				title :{
+					text: ""
+				},
+				data: [{
+					type: "spline",
+					markerSize: 0,
+					dataPoints: dps 
+				}]
+			});
+
+			var xVal = 0;
+			var yVal = 100;
+			var updateInterval = 100;
+			var dataLength = 50; // number of dataPoints visible at any point
+
+			var updateChart = function (count) {
+				count = count || 1;
+				// count is number of times loop runs to generate random dataPoints.
+				for (var j = 0; j < count; j++) {	
+					
+
+					yVal = yVal + Math.round(5 + Math.random() *(-5-5));
+					
+					dps.push({
+						x: xVal,
+						y: yVal
+					});
+					xVal++;
+				}
+				if (dps.length > dataLength) {
+					dps.shift();
+				}	
+				chart.render();
+			};	
+
+			updateChart(dataLength); 
+			setInterval(function(){ updateChart() }, updateInterval); 
+
+		}
+		*/
+	</script>
+
+
+</body>
+</html>

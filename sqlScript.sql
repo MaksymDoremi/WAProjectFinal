@@ -1,14 +1,15 @@
-use wa;
 
-drop table `User`;
+create database WA;
+
+use WA;
 
 create table `User`
 (
-	ID int auto_increment,
-    Username varchar(40) not null unique,
-    Email varchar(100) not null unique,
+	ID int not null auto_increment,
+    Username varchar(50) not null, -- aka login
+    Email varchar(50) not null,
     `Password` varchar(64) not null,
-    primary key(ID)
+	PRIMARY KEY (ID)
+    
 );
 
-select * from `User`;
