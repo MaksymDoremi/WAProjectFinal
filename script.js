@@ -122,10 +122,10 @@ function InsertCoin(coin) {
     let div3 = $('<div></div>'); //<b>coin.symbol to uppper case</b>/CZK
     let divPrice = $('<div></div>');
     let span = $('<span style="font-size: x-small; font-weight: 700; padding-left: 3px;">CZK</span>'); //czk napevno
-    let div4 = $('<div class="container"></div>');
-    let divChart = $('<div id="chartContainer" style="height: 100px; width:100%;"></div>');
+    //let div4 = $('<div class="container"></div>');
+    //let divChart = $('<div id="chartContainer" style="height: 100px; width:100%;"></div>');
 
-    div4.append(divChart);
+    //div4.append(divChart);
     divPrice.html(coin.price);
     divPrice.append(span);
     divPrice.attr('id',coin.symbol+'price');
@@ -138,7 +138,7 @@ function InsertCoin(coin) {
     div2.append(divTextLeft);
     divCardBody.append(div2);
     h5.append(coin.name);
-    h7.append(coin.percentage);
+    h7.append(coin.percentage+'%');
     h7.attr('id',coin.symbol+'percentage');
     if (parseFloat(coin.percentage) < 0) {
         h7.addClass('text-danger');
@@ -149,7 +149,7 @@ function InsertCoin(coin) {
     div1.append(h7);
     divCard.append(div1);
     divCard.append(divCardBody);
-    divCard.append(div4);
+    //divCard.append(div4);
     divCol.append(divCard);
 
     $('#currencyPlace').append(divCol);
@@ -172,13 +172,15 @@ function fetchCoinData(coin) {
 }
 
 function updateUI(data) {
+    
     $('#'+data.symbol+'price').html(data.market_data.current_price.czk);
     let span = $('<span style="font-size: x-small; font-weight: 700; padding-left: 3px;">CZK</span>');
     $('#'+data.symbol+'price').append(span);
 
-    $('#'+data.symbol+'percentage').html(data.percentage);
+    
+    $('#'+data.symbol+'percentage').html(data.market_data.price_change_percentage_1h_in_currency.czk+'%');
 
-    if (parseFloat(data.percentage) < 0) {
+    if (parseFloat(data.market_data.price_change_percentage_1h_in_currency.czk) < 0) {
         $('#'+data.symbol+'percentage').attr('class','card-title pe-3 pt-3 text-danger');
     } else {
         $('#'+data.symbol+'percentage').attr('class','card-title pe-3 pt-3 text-success');
