@@ -15,17 +15,17 @@ Zároveň je umožnená komunikace mezi uživatelem a vývojářem pomoci SMTP p
 
 ### Použité technologie
 
-  #### Programovací a značkovací jazyky
+  ##### Programovací a značkovací jazyky
   
     -HTML
     -CSS
     -JS
     -PHP
   
-  #### Úložiště dat
+  ##### Úložiště dat
     -MySQL
   
-  #### Knihovny
+  ##### Knihovny
     -PHPMailer
     
 ### Spuštění 
