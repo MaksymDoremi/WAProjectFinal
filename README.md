@@ -34,6 +34,9 @@ Potřebujete mít nainstalován XAMPP Control Panel.<br>
 Následně spusťte Apache a MySQL => stránka běží✅
   
     
+## Nesplněné požadavky
 
+    -Využití LocalStorage - nedokázál jsem najít vhodné využití.
+    -Zapsaní 3 špatných loginů do logovacího souborů - za mě je to nesmysl. Spíše by to mělo být implementované přes databází a poté server by měl poslat email uživateli, že někdo se chce nabourat na účet.
 
 
