@@ -30,7 +30,7 @@ Zároveň je umožnená komunikace mezi uživatelem a vývojářem pomoci SMTP p
     
 ### Spuštění 
 
-Potřebujete mít nainstalován XAMPP Control Panel
+Potřebujete mít nainstalován XAMPP Control Panel.
 Následně spusťte Apache a MySQL => stránka běží✅
   
     
