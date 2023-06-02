@@ -3,7 +3,7 @@
 
 ### Cíl projektů
 
-Cílem tohoto projektu bylo vytvořít jednoduchý web co umožní uživatelů sledovat stav veškerých kyrptoměn.
+Cílem tohoto projektu bylo vytvořít jednoduchý web co umožní uživatelů sledovat stav veškerých kyrptoměn.<br>
 Zároveň je umožnená komunikace mezi uživatelem a vývojářem pomoci SMTP protokolů a PHPMailerů.
 
 ### Funkce webové stránky
@@ -30,7 +30,7 @@ Zároveň je umožnená komunikace mezi uživatelem a vývojářem pomoci SMTP p
     
 ### Spuštění 
 
-Potřebujete mít nainstalován XAMPP Control Panel.
+Potřebujete mít nainstalován XAMPP Control Panel.<br>
 Následně spusťte Apache a MySQL => stránka běží✅
   
     
