@@ -8,25 +8,25 @@ Zároveň je umožnená komunikace mezi uživatelem a vývojářem pomoci SMTP p
 
 ### Funkce webové stránky
 
-    -Registrace a Login
-    -Dashboard s několika nejznámějšimi kryptoměnami
-    -Osobní účet a možnost si měnit heslo
-    -Odesílání mailů pomoci PHPMailerů a SMTP 
+    - Registrace a Login
+    - Dashboard s několika nejznámějšimi kryptoměnami
+    - Osobní účet a možnost si měnit heslo
+    - Odesílání mailů pomoci PHPMailerů a SMTP 
 
 ### Použité technologie
 
   ##### Programovací a značkovací jazyky
   
-    -HTML
-    -CSS
-    -JS
-    -PHP
+    - HTML
+    - CSS
+    - JS
+    - PHP
   
   ##### Úložiště dat
-    -MySQL
+    - MySQL
   
   ##### Knihovny
-    -PHPMailer
+    - PHPMailer
     
 ### Spuštění 
 
@@ -36,7 +36,7 @@ Následně spusťte Apache a MySQL => stránka běží✅
     
 ## Nesplněné požadavky
 
-    -Využití LocalStorage - nedokázál jsem najít vhodné využití.
-    -Zapsaní 3 špatných loginů do logovacího souborů - za mě je to nesmysl. Spíše by to mělo být implementované přes databází a poté server by měl poslat email uživateli, že někdo se chce nabourat na účet.
+    - Využití LocalStorage - nedokázál jsem najít vhodné využití.
+    - Zapsaní 3 špatných loginů do logovacího souborů - za mě je to nesmysl. Spíše by to mělo být implementované přes databází a poté server by měl poslat email uživateli, že někdo se chce nabourat na účet.
 
 
