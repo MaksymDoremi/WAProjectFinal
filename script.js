@@ -122,10 +122,10 @@ function InsertCoin(coin) {
     let div3 = $('<div></div>'); //<b>coin.symbol to uppper case</b>/CZK
     let divPrice = $('<div></div>');
     let span = $('<span style="font-size: x-small; font-weight: 700; padding-left: 3px;">CZK</span>'); //czk napevno
-    let div4 = $('<div class="container"></div>');
-    let divChart = $('<div id="chartContainer" style="height: 100px; width:100%;"></div>');
+    //let div4 = $('<div class="container"></div>');
+    //let divChart = $('<div id="chartContainer" style="height: 100px; width:100%;"></div>');
 
-    div4.append(divChart);
+    //div4.append(divChart);
     divPrice.html(coin.price);
     divPrice.append(span);
     divPrice.attr('id',coin.symbol+'price');
@@ -149,7 +149,7 @@ function InsertCoin(coin) {
     div1.append(h7);
     divCard.append(div1);
     divCard.append(divCardBody);
-    divCard.append(div4);
+    //divCard.append(div4);
     divCol.append(divCard);
 
     $('#currencyPlace').append(divCol);

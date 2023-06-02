@@ -17,7 +17,9 @@ if(isset($_POST['submit'])){
 		$mail->SMTPAuth   = true;                            
 		$mail->Username   = 'kintor@spsejecna.cz';                
 		$mail->Password   = 'secret';                       
-		$mail->SMTPSecure = 'tls';                             
+		$mail->SMTPSecure = 'tls';      
+
+		                       
 		$mail->Port       = 587; 
 
 		$mail->setFrom('kintor@spsejecna.cz', 'Crypto Heaven Server');          
