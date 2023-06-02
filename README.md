@@ -8,7 +8,7 @@ Zároveň je umožnená komunikace mezi uživatelem a vývojářem pomoci SMTP p
 
 ### Funkce webové stránky
 
-    - Registrace a Login
+    + Registrace a Login
     - Dashboard s několika nejznámějšimi kryptoměnami
     - Osobní účet a možnost si měnit heslo
     - Odesílání mailů pomoci PHPMailerů a SMTP 
